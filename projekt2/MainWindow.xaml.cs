@@ -16,6 +16,7 @@ namespace projekt2
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Rendeles> rendeles_lista = new List<Rendeles>();
         public MainWindow()
         {
             InitializeComponent();
