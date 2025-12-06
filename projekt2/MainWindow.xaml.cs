@@ -23,10 +23,10 @@ namespace projekt2
             Orders = FileReader.Load("orders.txt");
 
             // Itt van nehany LINQ pelda
-            var newOrders = orders.Where(x => x.Status == "New").ToList();
-            var today = orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
-            var maxOrder = orders.OrderByDescending(x => x.TotalPrice).First();
-            var byRestaurant = orders.GroupBy(x => x.RestaurantName);
+            var newOrders = Orders.Where(x => x.Status == "New").ToList();
+            var today = Orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+            var maxOrder = Orders.OrderByDescending(x => x.TotalPrice).First();
+            var byRestaurant = Orders.GroupBy(x => x.RestaurantName);
         }
     }
 }
