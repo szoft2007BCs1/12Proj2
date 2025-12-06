@@ -16,10 +16,17 @@ namespace projekt2
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Rendeles> rendeles_lista = new List<Rendeles>();
+        public List<Order> Orders { get; set; }
+
         public MainWindow()
         {
-            InitializeComponent();
+            Orders = FileReader.Load("orders.txt");
+
+            // Itt van nehany LINQ pelda
+            var newOrders = orders.Where(x => x.Status == "New").ToList();
+            var today = orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+            var maxOrder = orders.OrderByDescending(x => x.TotalPrice).First();
+            var byRestaurant = orders.GroupBy(x => x.RestaurantName);
         }
     }
 }

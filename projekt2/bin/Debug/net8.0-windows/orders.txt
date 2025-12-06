@@ -1,0 +1,9 @@
+Id;CustomerName;CustomerPhone;Street;RestaurantName;OrderDateTime;Status;PaymentMethod;TotalPrice
+1;Antal Csecske;+36 30 123 4567;Kabos Kicsi utca 3;Pizzas;2025-12-06 18:32;New;Online;4990
+2;Norma Kiki;+36 30 123 4562;Kicsi csirke utca 5;Nomino;2025-12-06 19:30;Delivered;Online;5090
+3;Barta Levente;+36 20 445 7812;Berzsenyi utca 14;Burger Max;2025-12-06 20:05;New;Card;3790
+4;Kovács Anna;+36 70 332 1198;Rákóczi út 22;China Wok;2025-12-06 20:40;Delivered;Cash;6290
+5;Szabó Márk;+36 30 998 1144;Petőfi Sándor utca 7;Pizza Mamma;2025-12-06 21:15;New;Online;4590
+6;Tóth Réka;+36 70 556 2301;Széchenyi tér 1;Fresh Salad;2025-12-06 21:50;Delivered;Card;3190
+7;Nagy Péter;+36 20 771 9045;Bartók Béla út 9;Street Food Hub;2025-12-06 22:10;New;Cash;5890
+8;Fekete Eszter;+36 30 664 7823;Ady Endre utca 18;Pasta Point;2025-12-06 22:35;Delivered;Online;4890
