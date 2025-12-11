@@ -17,4 +17,9 @@ public class Order
     public string Status { get; set; }          // "New" vagy "Delivered"
     public string PaymentMethod { get; set; }   // "Online" vagy "Cash" vagy "Card"
     public int TotalPrice { get; set; }
+
+    public override string ToString()
+    {
+        return $"Id: {Id} - Name: {CustomerName}";
+    }
 }

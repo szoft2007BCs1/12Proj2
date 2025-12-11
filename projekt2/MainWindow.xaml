@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="250" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="ComboBox_mindenes" SelectionChanged="ComboBox_mindenes_SelectionChanged">
+
+        </ComboBox>
+        <TextBox x:Name="txtblock_id" Grid.Row="1" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_name" Grid.Row="2" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_phone" Grid.Row="3" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_street" Grid.Row="4" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_restaurant" Grid.Row="5" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_time" Grid.Row="6" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         
+        <CheckBox x:Name="chckbox_status" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="250 0 0 0"/>
+        <Label Content="New item?" Grid.Row="7" FontSize="30" Margin="300 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <ComboBox x:Name="ComboBox_method" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="250" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <ComboBoxItem Content="Online"/>
+            <ComboBoxItem Content="Cash"/>
+            <ComboBoxItem Content="Car"/>
+
+        </ComboBox>
+        <TextBox x:Name="txtblock_price" Grid.Row="9" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>
