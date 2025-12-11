@@ -16,10 +16,36 @@ namespace projekt2
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Rendeles> rendeles_lista = new List<Rendeles>();
+        public List<Order> Orders { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Orders = FileReader.Load("orders.txt");
+
+            // Itt van nehany LINQ pelda
+            var newOrders = Orders.Where(x => x.Status == "New").ToList();
+            var today = Orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+            var maxOrder = Orders.OrderByDescending(x => x.TotalPrice).First();
+            var byRestaurant = Orders.GroupBy(x => x.RestaurantName);
+
+            lbl_neworder.Content = "";
+            foreach(var item in newOrders)
+                lbl_neworder.Content += $"{item}";
+
+            foreach (var item in Orders)
+                ComboBox_mindenes.Items.Add(item);
+
+        }
+
+        private void ComboBox_mindenes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InitializeComponent();
+            label_id.Content = Orders[ComboBox_mindenes.SelectedIndex].Id;
+            label_name.Content = Orders[ComboBox_mindenes.SelectedIndex].CustomerName;
+
+            txtblock_phone.Text = Orders[ComboBox_mindenes.SelectedIndex].CustomerPhone;
         }
     }
 }

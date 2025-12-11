@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        
+        <Label x:Name="lbl_neworder" Content="asdasdasd" FontSize="20px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,514,0,0"/>
+        <ComboBox HorizontalAlignment="Left" Margin="153,265,0,0" VerticalAlignment="Top" Width="120" x:Name="ComboBox_mindenes" Grid.ColumnSpan="2" SelectionChanged="ComboBox_mindenes_SelectionChanged">
+
+        </ComboBox>
+        <Label x:Name="label_id" Content="Szöveg" FontSize="30" Margin="43,233,1410,325" Width="200" Height="200"/>
+        <Label x:Name="label_name" Content="Szöveg" FontSize="30" Margin="43,433,1410,125" Width="200" Height="200"/>
+        <TextBox x:Name="txtblock_phone" Text="Szöveg" FontSize="30" Margin="0,26,1153,657" Width="500" Height="75"/>
     </Grid>
 </Window>
