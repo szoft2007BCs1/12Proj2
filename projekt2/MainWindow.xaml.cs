@@ -42,17 +42,33 @@ namespace projekt2
             // Itt van nehany LINQ pelda
             var newOrders = Orders.Where(x => x.Status == "New").ToList();
             var today = Orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+            if(today.Count() > 0)
+            {
+                lbl_mai.Content = $"{today.First().ToString()} - Dátum: {today.First().OrderDateTime}";
+            }
             var maxOrder = Orders.OrderByDescending(x => x.TotalPrice).First();
+            var minOrder = Orders.OrderBy(x => x.TotalPrice).First();
             var byRestaurant = Orders.GroupBy(x => x.RestaurantName);
 
             ComboBox_mindenes.Items.Clear();
+            ComboBox_torles.Items.Clear();
+
             ComboBox_mindenes.Items.Add("New");
             foreach (var item in Orders)
+            {
                 ComboBox_mindenes.Items.Add(item);
+                ComboBox_torles.Items.Add(item);
+            }
 
             btn_add.Visibility = Visibility.Hidden;
 
             ComboBox_mindenes.SelectedIndex = 1;
+            ComboBox_torles.SelectedIndex = 0;
+
+            lbl_ossz.Content = $"Össz rendelések száma: {Orders.Count}";
+            lbl_maxar.Content = $"{maxOrder.ToString()} - Ár: {maxOrder.TotalPrice}";
+            lbl_minar.Content = $"{minOrder.ToString()} - Ár: {minOrder.TotalPrice}";
+
         }
 
         private void ComboBox_mindenes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -130,14 +146,68 @@ namespace projekt2
 
                     Orders = FileReader.Load("orders.txt");
                     ComboBox_mindenes.Items.Clear();
+                    ComboBox_torles.Items.Clear();
+
                     ComboBox_mindenes.Items.Add("New");
                     foreach (var item in Orders)
+                    {
                         ComboBox_mindenes.Items.Add(item);
+                        ComboBox_torles.Items.Add(item);
+                    }
 
                     ComboBox_mindenes.SelectedIndex = filekimenet.Count-1;
+
+                    var maxOrder = Orders.OrderByDescending(x => x.TotalPrice).First();
+                    var minOrder = Orders.OrderBy(x => x.TotalPrice).First();
+
+                    lbl_ossz.Content = $"Össz rendelések száma: {Orders.Count}";
+                    lbl_maxar.Content = $"{maxOrder.ToString()} - Ár: {maxOrder.TotalPrice}";
+                    lbl_minar.Content = $"{minOrder.ToString()} - Ár: {minOrder.TotalPrice}";
+
+                    var today = Orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+                    if (today.Count() > 0)
+                    {
+                        lbl_mai.Content = $"{today.First().ToString()} - Dátum: {today.First().OrderDateTime}";
+                    }
                 }
                 else
                     MessageBox.Show("Nem jól van megadva az Ár");
+            }
+        }
+
+        private void btn_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (ComboBox_mindenes.SelectedItem is Order selectedOrder)
+            {
+                filekimenet.RemoveAt(ComboBox_torles.SelectedIndex+1);
+                File.WriteAllLines("orders.txt", filekimenet);
+
+                Orders = FileReader.Load("orders.txt");
+                ComboBox_mindenes.Items.Clear();
+                ComboBox_torles.Items.Clear();
+
+                ComboBox_mindenes.Items.Add("New");
+                foreach (var item in Orders)
+                {
+                    ComboBox_mindenes.Items.Add(item);
+                    ComboBox_torles.Items.Add(item);
+                }
+
+                ComboBox_mindenes.SelectedIndex = 1;
+                ComboBox_torles.SelectedIndex = 0;
+
+                var maxOrder = Orders.OrderByDescending(x => x.TotalPrice).First();
+                var minOrder = Orders.OrderBy(x => x.TotalPrice).First();
+
+                lbl_ossz.Content = $"Össz rendelések száma: {Orders.Count}";
+                lbl_maxar.Content = $"{maxOrder.ToString()} - Ár: {maxOrder.TotalPrice}";
+                lbl_minar.Content = $"{minOrder.ToString()} - Ár: {minOrder.TotalPrice}";
+
+                var today = Orders.Where(x => x.OrderDateTime.Date == DateTime.Today);
+                if (today.Count() > 0)
+                {
+                    lbl_mai.Content = $"{today.First().ToString()} - Dátum: {today.First().OrderDateTime}";
+                }
             }
         }
     }

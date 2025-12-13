@@ -28,7 +28,7 @@
         <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="250" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="ComboBox_mindenes" SelectionChanged="ComboBox_mindenes_SelectionChanged">
 
         </ComboBox>
-        <TextBox x:Name="txtblock_id" Grid.Row="1" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtblock_id" Grid.Row="1" IsEnabled="False" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="txtblock_name" Grid.Row="2" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="txtblock_phone" Grid.Row="3" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="txtblock_street" Grid.Row="4" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -47,5 +47,22 @@
         <TextBox x:Name="txtblock_price" Grid.Row="9" Text="Szöveg" FontSize="30" Width="500" Height="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
         <Button x:Name="btn_add" Content="Új rendelés felvétele" Grid.Row="10" Height="75" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btn_add_Click"/>
+
+        <Label Grid.Column="1" Content="Statisztika" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="lbl_ossz" Grid.Column="1" Grid.Row="1" Content="Össz rendelések száma:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="Legnagyobb rendelés:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbl_maxar" Grid.Column="1" Grid.Row="3" Content="Szöveg" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Label Grid.Column="1" Grid.Row="4" Content="Legalacsonabb rendelés:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbl_minar" Grid.Column="1" Grid.Row="5" Content="Szöveg" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Label Grid.Column="1" Grid.Row="6" Content="Első mai rendelés:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbl_mai" Grid.Column="1" Grid.Row="7" Content="Nincs" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="75" Width="350" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="ComboBox_torles" Grid.Column="2" Grid.RowSpan="2" FontSize="20">
+
+        </ComboBox>
+        <Button x:Name="btn_remove" Content="Rendelés törlése" Grid.Row="2" Grid.Column="2" Height="75" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btn_remove_Click"/>
     </Grid>
 </Window>
